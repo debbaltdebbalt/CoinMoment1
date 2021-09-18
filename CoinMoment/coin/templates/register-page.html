@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static '/styles/style.css' %}">
+</head>
+<body>
+<div class="header">
+    <h3><a href="welcome.html" class="logo">CoinMoment</a></h3>
+</div>
+<div class="container">
+    <h2 class="">Please provide your personal information</h2>
+    <form action="/register" method="post">
+        {% csrf_token %}
+        {% for field in profile %}
+    <div class="input-box">
+        {{field.label}}:
+        {{field}}
+    </div>
+        <div style="color: #dc3545; font-size:14px;">{{field.errors}}</div>
+        {% endfor %}
+    <div class="big-button">
+        <button type="submit">Submit</button>
+    </div>
+    </form>
+    <div class="more-function-block"><a href="login-page.html">Already have an account? Log In</a></div>
+</div>
+
+</body>
+</html>

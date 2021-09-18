@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Back Account</title>
+    <link rel="stylesheet" href="{% static '/styles/style.css' %}">
+</head>
+<body>
+<div class="header authorized">
+    <div>
+        <input type="checkbox" id="hmt" class="hidden-menu-ticker">
+        <svg xmlns="http://www.w3.org/2000/svg" class="svg-burger" viewBox="0 0 512 512"><path d="M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z"></path></svg>
+        <label class="btn-menu" for="hmt">
+            <span class="first"></span>
+            <span class="second"></span>
+            <span class="third"></span>
+        </label>
+
+        <ul class="hidden-menu">
+            <h2>CoinMoment</h2>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/bank">Bank Account</a></li>
+            <li><a href="/help">Help Center</a></li>
+            <li><a href="#">Log Out</a></li>
+        </ul>
+    </div>
+    <h3><a href="/" class="logo">CoinMoment</a></h3>
+    <div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="svg-notify" viewBox="0 0 512 512"><path d="M440.08 341.31c-1.66-2-3.29-4-4.89-5.93-22-26.61-35.31-42.67-35.31-118 0-39-9.33-71-27.72-95-13.56-17.73-31.89-31.18-56.05-41.12a3 3 0 01-.82-.67C306.6 51.49 282.82 32 256 32s-50.59 19.49-59.28 48.56a3.13 3.13 0 01-.81.65c-56.38 23.21-83.78 67.74-83.78 136.14 0 75.36-13.29 91.42-35.31 118-1.6 1.93-3.23 3.89-4.89 5.93a35.16 35.16 0 00-4.65 37.62c6.17 13 19.32 21.07 34.33 21.07H410.5c14.94 0 28-8.06 34.19-21a35.17 35.17 0 00-4.61-37.66zM256 480a80.06 80.06 0 0070.44-42.13 4 4 0 00-3.54-5.87H189.12a4 4 0 00-3.55 5.87A80.06 80.06 0 00256 480z"></path></svg>
+    </div>
+</div>
+<div class="extra-navigation">
+    <a href="/dashboard">
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="ionicon s-ion-icon" viewBox="0 0 512 512">
+                <rect class="svg-qr" x="336" y="336" width="80" height="80" rx="8" ry="8"></rect>
+                <rect class="svg-qr" x="272" y="272" width="64" height="64" rx="8" ry="8"></rect>
+                <rect class="svg-qr" x="416" y="416" width="64" height="64" rx="8" ry="8"></rect>
+                <rect class="svg-qr" x="432" y="272" width="48" height="48" rx="8" ry="8"></rect>
+                <rect class="svg-qr" x="272" y="432" width="48" height="48" rx="8" ry="8"></rect>
+                <rect class="svg-qr" x="336" y="96" width="80" height="80" rx="8" ry="8"></rect>
+                <rect x="288" y="48" width="176" height="176" rx="16" ry="16" stroke-linecap="round" stroke-linejoin="round"
+                      class="ionicon-fill-none ionicon-stroke-width"></rect>
+                <rect class="svg-qr" x="96" y="96" width="80" height="80" rx="8" ry="8"></rect>
+                <rect x="48" y="48" width="176" height="176" rx="16" ry="16" stroke-linecap="round" stroke-linejoin="round"
+                      class="ionicon-fill-none ionicon-stroke-width"></rect>
+                <rect class="svg-qr" x="96" y="336" width="80" height="80" rx="8" ry="8"></rect>
+                <rect x="48" y="288" width="176" height="176" rx="16" ry="16" stroke-linecap="round" stroke-linejoin="round"
+                      class="ionicon-fill-none ionicon-stroke-width"></rect>
+            </svg>
+            Sell
+        </div>
+    </a>
+    <a href="/transactions">
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="ionicon s-ion-icon" viewBox="0 0 512 512"><path stroke-linecap="round" stroke-linejoin="round" d="M160 144h288M160 256h288M160 368h288" class="ionicon-fill-none ionicon-stroke-width"></path><circle cx="80" cy="144" r="16" stroke-linecap="round" stroke-linejoin="round" class="ionicon-fill-none ionicon-stroke-width"></circle><circle cx="80" cy="256" r="16" stroke-linecap="round" stroke-linejoin="round" class="ionicon-fill-none ionicon-stroke-width"></circle><circle cx="80" cy="368" r="16" stroke-linecap="round" stroke-linejoin="round" class="ionicon-fill-none ionicon-stroke-width"></circle></svg>
+            <div>Transactions</div>
+        </div>
+    </a>
+    <a href="wallet-page.html">
+        <div class="current">
+            <svg xmlns="http://www.w3.org/2000/svg" class="ionicon s-ion-icon" viewBox="0 0 512 512"><rect x="48" y="144" width="416" height="288" rx="48" ry="48" stroke-linejoin="round" class="ionicon-fill-none ionicon-stroke-width"></rect><path d="M411.36 144v-30A50 50 0 00352 64.9L88.64 109.85A50 50 0 0048 159v49" stroke-linejoin="round" class="ionicon-fill-none ionicon-stroke-width"></path><path class="svg-qr" d="M368 320a32 32 0 1132-32 32 32 0 01-32 32z"></path></svg>
+            <div>Wallet</div>
+        </div>
+    </a>
+    <a href="#">
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="ionicon s-ion-icon" viewBox="0 0 512 512"><path d="M112.91 128A191.85 191.85 0 0064 254c-1.18 106.35 85.65 193.8 192 194 106.2.2 192-85.83 192-192 0-104.54-83.55-189.61-187.5-192a4.36 4.36 0 00-4.5 4.37V152" stroke-linecap="round" stroke-linejoin="round" class="ionicon-fill-none ionicon-stroke-width"></path><path d="M233.38 278.63l-79-113a8.13 8.13 0 0111.32-11.32l113 79a32.5 32.5 0 01-37.25 53.26 33.21 33.21 0 01-8.07-7.94z"></path></svg>
+            <div>Activities</div>
+        </div>
+    </a>
+</div>
+
+<div class="container">
+    <h4>
+        <span class="bank-title">Help Center</span>
+    </h4>
+    <h1>
+        <span>Hi, how can we help you?</span>
+    </h1>
+    <p class="small-grey-text margin-top-none">Visit our FAQ Section, we answered our top asked questions</p>
+    <div class="big-button white-button">
+        Visit Faqs
+    </div>
+    <p class="small-grey-text">You can also contact us with any of the details below</p>
+    <div class="contact-box">
+        <div class="contact-block">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M464 80H48a16 16 0 00-16 16v320a16 16 0 0016 16h416a16 16 0 0016-16V96a16 16 0 00-16-16zM265.82 284.63a16 16 0 01-19.64 0L89.55 162.81l19.64-25.26L256 251.73l146.81-114.18 19.64 25.26z"></path></svg>
+            <p>jackocoins247@gmail.com</p>
+        </div>
+        <div class="contact-block">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M478.94 370.14c-5.22-5.56-23.65-22-57.53-43.75-34.13-21.94-59.3-35.62-66.52-38.81a3.83 3.83 0 00-3.92.49c-11.63 9.07-31.21 25.73-32.26 26.63-6.78 5.81-6.78 5.81-12.33 4-9.76-3.2-40.08-19.3-66.5-45.78s-43.35-57.55-46.55-67.3c-1.83-5.56-1.83-5.56 4-12.34.9-1.05 17.57-20.63 26.64-32.25a3.83 3.83 0 00.49-3.92c-3.19-7.23-16.87-32.39-38.81-66.52-21.78-33.87-38.2-52.3-43.76-57.52a3.9 3.9 0 00-3.89-.87 322.35 322.35 0 00-56 25.45A338 338 0 0033.35 92a3.83 3.83 0 00-1.26 3.74c2.09 9.74 12.08 50.4 43.08 106.72 31.63 57.48 53.55 86.93 100 133.22S252 405.21 309.54 436.84c56.32 31 97 41 106.72 43.07a3.86 3.86 0 003.75-1.26A337.73 337.73 0 00454.35 430a322.7 322.7 0 0025.45-56 3.9 3.9 0 00-.86-3.86z"></path></svg>
+            <p>+234-8130015202</p>
+        </div>
+        <div class="contact-block">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M496 109.5a201.8 201.8 0 01-56.55 15.3 97.51 97.51 0 0043.33-53.6 197.74 197.74 0 01-62.56 23.5A99.14 99.14 0 00348.31 64c-54.42 0-98.46 43.4-98.46 96.9a93.21 93.21 0 002.54 22.1 280.7 280.7 0 01-203-101.3A95.69 95.69 0 0036 130.4c0 33.6 17.53 63.3 44 80.7A97.5 97.5 0 0135.22 199v1.2c0 47 34 86.1 79 95a100.76 100.76 0 01-25.94 3.4 94.38 94.38 0 01-18.51-1.8c12.51 38.5 48.92 66.5 92.05 67.3A199.59 199.59 0 0139.5 405.6a203 203 0 01-23.5-1.4A278.68 278.68 0 00166.74 448c181.36 0 280.44-147.7 280.44-275.8 0-4.2-.11-8.4-.31-12.5A198.48 198.48 0 00496 109.5z"></path></svg>
+            <p>CoinMoment</p>
+        </div>
+        <div class="contact-block">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M455.27 32H56.73A24.74 24.74 0 0032 56.73v398.54A24.74 24.74 0 0056.73 480H256V304h-53.55v-64H256v-51c0-57.86 40.13-89.36 91.82-89.36 24.73 0 51.33 1.86 57.51 2.68v60.43h-41.18c-28.12 0-33.48 13.3-33.48 32.9V240h67l-8.75 64h-58.25v176h124.6A24.74 24.74 0 00480 455.27V56.73A24.74 24.74 0 00455.27 32z"></path></svg>
+            <p>CoinMoment</p>
+        </div>
+    </div>
+</div>
+<div class="wrapper">
+      <div class="step step-first ng-trigger ng-trigger-stepTriggerOne" style="transform: translateX(0%); display: block;">
+        <form class="ng-tns-c9-14 ng-pristine ng-invalid ng-touched" novalidate="">
+          <div class="form gray-area">
+            <div class="notice info center-item first-top">
+              <ion-icon class="ng-tns-c9-14 icon icon-md icon-md-primary ion-md-information-circle" color="primary" item-start="" name="information-circle" role="img" aria-label="information circle"></ion-icon>
+              <div class="ng-tns-c9-14">You will need a working PayPal account to accept payments form buyers. Please enter your PayPal email address below.</div>
+            </div>
+            <!---->
+            <div class="input-container center-item first-top last-bottom has-error">
+              <!----><div class="error-message ng-tns-c9-14 ng-trigger ng-trigger-slideDown">
+                <!----><span class="ng-tns-c9-14">
+                  Please enter PayPal email
+                </span>
+
+                <!---->
+
+                <!---->
+
+                <!---->
+              </div>
+
+              <ion-item class="item item-block item-md item-input item-label-stacked ng-untouched ng-pristine ng-invalid"><div class="item-inner"><div class="input-wrapper"><ion-label stacked="" class="label label-md ng-tns-c9-14" id="lbl-39">PayPal email</ion-label><!----><ion-input formcontrolname="Email" class="input input-md ng-tns-c9-14 ng-pristine ng-invalid ng-touched"><!----><input class="text-input text-input-md" dir="auto" type="text" aria-labelledby="lbl-39" autocomplete="off" autocorrect="off" placeholder="" formcontrolname="Email"><!----><!----><!----></ion-input></div><!----></div><div class="button-effect"></div></ion-item>
+            </div>
+          </div>
+
+          <div class="button-panel center-item">
+            <button class="ng-tns-c9-14 button button-md button-outline button-outline-md button-outline-md-cancel" color="cancel" ion-button="" outline="" type="button"><span class="button-inner">Cancel</span><div class="button-effect"></div></button>
+            <button class="save button button-md button-default button-default-md" ion-button="" type="submit"><span class="button-inner">CONTINUE</span><div class="button-effect"></div></button>
+          </div>
+        </form>
+      </div>
+    </div>
+</body>
+</html>
