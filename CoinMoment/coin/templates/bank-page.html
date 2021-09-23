@@ -5,24 +5,22 @@
     <meta charset="UTF-8">
     <title>Back Account</title>
     <link rel="stylesheet" href="{% static '/styles/style.css' %}">
+    <link rel="stylesheet" href="../static/styles/style.css">
+    <script src="../static/js/menu.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
 <body>
 <div class="header authorized">
     <div>
-        <input type="checkbox" id="hmt" class="hidden-menu-ticker">
-        <svg xmlns="http://www.w3.org/2000/svg" class="svg-burger" viewBox="0 0 512 512"><path d="M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z"></path></svg>
-        <label class="btn-menu" for="hmt">
-            <span class="first"></span>
-            <span class="second"></span>
-            <span class="third"></span>
-        </label>
-
-        <ul class="hidden-menu">
-            <h2>CoinMoment</h2>
-            <li><a href="/profile">Profile</a></li>
-            <li><a href="/bank">Bank Account</a></li>
-            <li><a href="/help">Help Center</a></li>
-            <li><a href="/logout">Log Out</a></li>
+        <div id="menu-button" class="menu-button">
+            <svg xmlns="http://www.w3.org/2000/svg" class="svg-burger" viewBox="0 0 512 512"><path d="M64 384h384v-42.67H64zm0-106.67h384v-42.66H64zM64 128v42.67h384V128z"></path></svg>
+        </div>
+        <ul class="hidden-menu" id="hidden-block">
+            <h2 class="thin-font-weight">CoinMoment</h2>
+            <li><svg xmlns="http://www.w3.org/2000/svg" class="ionicon s-ion-icon" viewBox="0 0 512 512"><path d="M344 144c-3.92 52.87-44 96-88 96s-84.15-43.12-88-96c-4-55 35-96 88-96s92 42 88 96z" stroke-linecap="round" stroke-linejoin="round" class="ionicon-fill-none ionicon-stroke-width"></path><path d="M256 304c-87 0-175.3 48-191.64 138.6C62.39 453.52 68.57 464 80 464h352c11.44 0 17.62-10.48 15.65-21.4C431.3 352 343 304 256 304z" stroke-miterlimit="10" class="ionicon-fill-none ionicon-stroke-width"></path></svg><a href="/profile">Profile</a></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" class="ionicon s-ion-icon" viewBox="0 0 512 512"><rect x="48" y="96" width="416" height="320" rx="56" ry="56" stroke-linecap="round" stroke-linejoin="round" class="ionicon-fill-none ionicon-stroke-width"></rect><path stroke-linejoin="round" stroke-width="60" d="M48 192h416M128 300h48v20h-48z" class="ionicon-fill-none"></path></svg><a href="/bank">Bank Account</a></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" class="ionicon s-ion-icon" viewBox="0 0 512 512"><path d="M256 80a176 176 0 10176 176A176 176 0 00256 80z" stroke-miterlimit="10" class="ionicon-fill-none ionicon-stroke-width"></path><path d="M200 202.29s.84-17.5 19.57-32.57C230.68 160.77 244 158.18 256 158c10.93-.14 20.69 1.67 26.53 4.45 10 4.76 29.47 16.38 29.47 41.09 0 26-17 37.81-36.37 50.8S251 281.43 251 296" stroke-linecap="round" stroke-miterlimit="10" stroke-width="28" class="ionicon-fill-none"></path><circle cx="250" cy="348" r="20"></circle></svg><a href="/help">Help Center</a></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" class="ionicon s-ion-icon" viewBox="0 0 512 512"><path d="M320 176v-40a40 40 0 00-40-40H88a40 40 0 00-40 40v240a40 40 0 0040 40h192a40 40 0 0040-40v-40M384 176l80 80-80 80M191 256h273" stroke-linecap="round" stroke-linejoin="round" class="ionicon-fill-none ionicon-stroke-width"></path></svg><a href="#">Log Out</a></li>
         </ul>
     </div>
     <h3><a href="welcome.html" class="logo">CoinMoment</a></h3>
@@ -32,13 +30,13 @@
 </div>
 <div class="extra-navigation">
     <a href="/transactions">
-        <div>
+        <div class="link">
             <svg xmlns="http://www.w3.org/2000/svg" class="ionicon s-ion-icon" viewBox="0 0 512 512"><path stroke-linecap="round" stroke-linejoin="round" d="M160 144h288M160 256h288M160 368h288" class="ionicon-fill-none ionicon-stroke-width"></path><circle cx="80" cy="144" r="16" stroke-linecap="round" stroke-linejoin="round" class="ionicon-fill-none ionicon-stroke-width"></circle><circle cx="80" cy="256" r="16" stroke-linecap="round" stroke-linejoin="round" class="ionicon-fill-none ionicon-stroke-width"></circle><circle cx="80" cy="368" r="16" stroke-linecap="round" stroke-linejoin="round" class="ionicon-fill-none ionicon-stroke-width"></circle></svg>
             <div>Transactions</div>
         </div>
     </a>
     <a href="/dashboard">
-        <div class="">
+        <div class="link">
             <svg xmlns="http://www.w3.org/2000/svg" class="ionicon s-ion-icon" viewBox="0 0 512 512"><rect x="48" y="144" width="416" height="288" rx="48" ry="48" stroke-linejoin="round" class="ionicon-fill-none ionicon-stroke-width"></rect><path d="M411.36 144v-30A50 50 0 00352 64.9L88.64 109.85A50 50 0 0048 159v49" stroke-linejoin="round" class="ionicon-fill-none ionicon-stroke-width"></path><path class="svg-qr" d="M368 320a32 32 0 1132-32 32 32 0 01-32 32z"></path></svg>
             <div>Wallet</div>
         </div>
@@ -47,13 +45,65 @@
 
 <div class="container">
     <h4>
-        <span class="bank-title">Bank and Payments</span>
+        <span class="bank-title">Linked bank account</span>
     </h4>
+    {% if user.routing_number != None %}
     <p class="small-grey-text">Bank Details</p>
-    <div class="big-button white-button">
+    <div class="big-button white-button" id="add-new-bank">
         Add a new account
     </div>
 </div>
 
+<div id="add-new-bank-block">
+    <div class="add-new-bank-block">
+        <form action="/add_bank" method="post">
+            {% csrf_token %}
+        <h3 class="thin-font-weight">Add new bank</h3>
+            <div class="input-box">
+                {{ form.account_nickname.label }}
+                {{ form.account_nickname }}
+            </div>
+            <div class="input-box">
+                {{ form.account_number.label }}
+                {{ form.account_number }}
+            </div>
+            <div class="input-box">
+                {{ form.routing_number.label }}
+                {{ form.routing_number }}
+            </div>
+        <div class="input-box">
+        {{ form.account_type.label }}
+        <div class="select-dropdown">
+            {{ form.account_type }}
+        </div>
+            </div>
+        <input type="submit" class="big-button white-button margin-top" value="Save">
+        <div class="close-button link">
+            Dismiss
+        </div>
+            </form>
+    </div>
+</div>
+{% else %}
+    <table>
+                <thead>
+        <tr>
+            <th>Nickname</th>
+            <th>Account number</th>
+            <th>Routing number</th>
+            <th>Type</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ user.account_nickname }}</td>
+            <td>{{ user.account_number}}</td>
+            <td>{{ user.routing_number }}</td>
+            <td>{{ user.account_type }}</td>
+        </tr>
+        </tbody>
+    </table>
+{% endif %}
 </body>
 </html>

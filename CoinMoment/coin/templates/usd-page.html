@@ -3,7 +3,7 @@
 {% load static %}
 <head>
     <meta charset="UTF-8">
-    <title>Transactions</title>
+    <title>Detail</title>
     <link rel="stylesheet" href="{% static '/styles/style.css' %}">
     <link rel="stylesheet" href="../static/styles/style.css">
     <script src="../static/js/menu.js"></script>
@@ -30,7 +30,7 @@
 </div>
 <div class="extra-navigation">
     <a href="/transactions">
-        <div class="link current">
+        <div class="link">
             <svg xmlns="http://www.w3.org/2000/svg" class="ionicon s-ion-icon" viewBox="0 0 512 512"><path stroke-linecap="round" stroke-linejoin="round" d="M160 144h288M160 256h288M160 368h288" class="ionicon-fill-none ionicon-stroke-width"></path><circle cx="80" cy="144" r="16" stroke-linecap="round" stroke-linejoin="round" class="ionicon-fill-none ionicon-stroke-width"></circle><circle cx="80" cy="256" r="16" stroke-linecap="round" stroke-linejoin="round" class="ionicon-fill-none ionicon-stroke-width"></circle><circle cx="80" cy="368" r="16" stroke-linecap="round" stroke-linejoin="round" class="ionicon-fill-none ionicon-stroke-width"></circle></svg>
             <div>Transactions</div>
         </div>
@@ -41,14 +41,28 @@
             <div>Wallet</div>
         </div>
     </a>
-    <a href="#">
-    </a>
 </div>
 
 <div class="container">
-    <h4 class="big-text">
-        Transactions
+    <h4>
+        <span class="bank-title">{{ currency.label }}</span>
     </h4>
+
+    <div class="detail-coin-box">
+        <h5>Current value</h5>
+        <h3>${{ value }}</h3>
+    </div>
+
+    <div class="flex-row-center flex-wallet-center">
+         <div class="wallet-button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M448 400H64a16 16 0 010-32h384a16 16 0 010 32zm-32 48H96a16 16 0 010-32h320a16 16 0 010 32zM32 272H16v48a32 32 0 0032 32h48v-16a64.07 64.07 0 00-64-64z"/><path d="M480 240h16v-64h-16a96.11 96.11 0 01-96-96V64H128v16a96.11 96.11 0 01-96 96H16v64h16a96.11 96.11 0 0196 96v16h256v-16a96.11 96.11 0 0196-96zm-224 64a96 96 0 1196-96 96.11 96.11 0 01-96 96z"/><circle cx="256" cy="208" r="64"/><path d="M416 336v16h48a32 32 0 0032-32v-48h-16a64.07 64.07 0 00-64 64zm64-192h16V96a32 32 0 00-32-32h-48v16a64.07 64.07 0 0064 64zM96 80V64H48a32 32 0 00-32 32v48h16a64.07 64.07 0 0064-64z"/></svg>
+            <div>Deposit</div>
+        </div>
+        <div class="wallet-button">
+            <svg xmlns='http://www.w3.org/2000/svg' class='svg-transfer' viewBox='0 0 512 512'><path d='M476.59 227.05l-.16-.07L49.35 49.84A23.56 23.56 0 0027.14 52 24.65 24.65 0 0016 72.59v113.29a24 24 0 0019.52 23.57l232.93 43.07a4 4 0 010 7.86L35.53 303.45A24 24 0 0016 327v113.31A23.57 23.57 0 0026.59 460a23.94 23.94 0 0013.22 4 24.55 24.55 0 009.52-1.93L476.4 285.94l.19-.09a32 32 0 000-58.8z'/></svg>
+            <div>Withdraw</div>
+        </div>
+    </div>
 
     <table>
         <thead>
@@ -72,6 +86,7 @@
         {% endfor %}
         </tbody>
     </table>
+
 </div>
 
 </body>
