@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{% static '/styles/style.css' %}">
     <link rel="stylesheet" href="../static/styles/style.css">
     <script src="../static/js/menu.js"></script>
+    <script src="../static/js/usd.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
 <body>
@@ -54,11 +55,11 @@
     </div>
 
     <div class="flex-row-center flex-wallet-center">
-         <div class="wallet-button">
+         <div class="wallet-button" id="deposit-button">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M448 400H64a16 16 0 010-32h384a16 16 0 010 32zm-32 48H96a16 16 0 010-32h320a16 16 0 010 32zM32 272H16v48a32 32 0 0032 32h48v-16a64.07 64.07 0 00-64-64z"/><path d="M480 240h16v-64h-16a96.11 96.11 0 01-96-96V64H128v16a96.11 96.11 0 01-96 96H16v64h16a96.11 96.11 0 0196 96v16h256v-16a96.11 96.11 0 0196-96zm-224 64a96 96 0 1196-96 96.11 96.11 0 01-96 96z"/><circle cx="256" cy="208" r="64"/><path d="M416 336v16h48a32 32 0 0032-32v-48h-16a64.07 64.07 0 00-64 64zm64-192h16V96a32 32 0 00-32-32h-48v16a64.07 64.07 0 0064 64zM96 80V64H48a32 32 0 00-32 32v48h16a64.07 64.07 0 0064-64z"/></svg>
             <div>Deposit</div>
         </div>
-        <div class="wallet-button">
+        <div class="wallet-button" id="withdraw-button">
             <svg xmlns='http://www.w3.org/2000/svg' class='svg-transfer' viewBox='0 0 512 512'><path d='M476.59 227.05l-.16-.07L49.35 49.84A23.56 23.56 0 0027.14 52 24.65 24.65 0 0016 72.59v113.29a24 24 0 0019.52 23.57l232.93 43.07a4 4 0 010 7.86L35.53 303.45A24 24 0 0016 327v113.31A23.57 23.57 0 0026.59 460a23.94 23.94 0 0013.22 4 24.55 24.55 0 009.52-1.93L476.4 285.94l.19-.09a32 32 0 000-58.8z'/></svg>
             <div>Withdraw</div>
         </div>
@@ -87,6 +88,64 @@
         </tbody>
     </table>
 
+</div>
+
+<div id="deposit-block">
+    <div class="detail-modal-block b" id="deposit-modal">
+        <h3 class="thin-font-weight">Deposit Coins</h3>
+
+        <div class="dropdown b" id="bank-drop-down">
+            <div class="select">
+                <span id="current-bank" class="selected-item">Select Coin</span>
+                <i class="fa fa-chevron-left"></i>
+            </div>
+            <input type="hidden" id="selected-bank">
+            <ul class="dropdown-menu b">
+                <li data-id="1"><img src="../static/img/bank.svg" alt="">Bank 1</li>
+                <li data-id="2"><img src="../static/img/bank.svg" alt="">Bank 2</li>
+                <li data-id="3"><img src="../static/img/bank.svg" alt="">Bank 3</li>
+                <li data-id="4"><img src="../static/img/bank.svg" alt="">Bank 4</li>
+            </ul>
+        </div>
+
+        <div class="input-box">
+            <input type="number" placeholder="Amount" name="amount">
+        </div>
+
+        <input type="submit" class="big-button white-button margin-top" value="Send">
+        <div class="close-button link" id="close-modal-bank-block">
+            Dismiss
+        </div>
+    </div>
+</div>
+
+<div id="withdraw-block">
+    <div class="detail-modal-block w" id="withdraw-modal">
+        <h3 class="thin-font-weight">Withdraw Coins</h3>
+
+        <div class="dropdown w" id="withdraw-drop-down">
+            <div class="select">
+                <span id="current-withdraw" class="selected-item">Select Coin</span>
+                <i class="fa fa-chevron-left"></i>
+            </div>
+            <input type="hidden" id="selected-withdraw">
+            <ul class="dropdown-menu w">
+                <li data-id="1"><img src="../static/img/bank.svg" alt="">Bank 1</li>
+                <li data-id="2"><img src="../static/img/bank.svg" alt="">Bank 2</li>
+                <li data-id="3"><img src="../static/img/bank.svg" alt="">Bank 3</li>
+                <li data-id="4"><img src="../static/img/bank.svg" alt="">Bank 4</li>
+            </ul>
+        </div>
+
+        <div class="input-box">
+            <input type="number" placeholder="Amount" name="amount">
+        </div>
+
+        <input type="submit" class="big-button white-button margin-top" value="Send">
+        <div class="close-button link" id="close-modal-withdraw-block">
+            Dismiss
+        </div>
+    </div>
 </div>
 
 </body>
