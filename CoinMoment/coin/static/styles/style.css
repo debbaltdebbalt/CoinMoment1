@@ -703,3 +703,9 @@ tr:nth-child(even) {
     left: 10px;
     margin-right: -50%;
 }
+.flex {
+    display: flex;
+}
+.non-active-item {
+    opacity: 0.4;
+}

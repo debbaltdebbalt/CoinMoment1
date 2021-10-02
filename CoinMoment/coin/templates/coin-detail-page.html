@@ -91,60 +91,75 @@
     </table>
 
 </div>
+<div id="exchange">
+    <div id="buy-block">
+        <div class="detail-modal-block" id="ex-bl">
+            <h3 class="thin-font-weight">Exchange Coins</h3>
 
-<div id="buy-block">
-    <div class="detail-modal-block" id="ex-bl">
-        <h3 class="thin-font-weight">Exchange Coins</h3>
-
-        <div class="dropdown" id="dr1">
-            <div class="select" id="select1">
-                <span id="current1" class="selected-item">Select Coin</span>
-                <i class="fa fa-chevron-left"></i>
+            <div class="dropdown" id="dr1">
+                <div class="select" id="select1">
+                    <span id="current1" class="selected-item">
+                        <span v-if="isFirstCoinSelected || isSecondCoinSelected" class="flex">
+                            <img v-bind:src="firstCoin.img" alt="">
+                            {{firstCoin.name}}
+                        </span>
+                        <span v-if="!isFirstCoinSelected && !isSecondCoinSelected">{{firstCoin}}</span>
+                    </span>
+                </div>
+                <input type="hidden" id="coin1" v-bind:value="firstCoin.id">
+                <ul class="dropdown-menu t1">
+                    <li
+                            v-for="coin of coins"
+                            v-bind:data-id="coin.id"
+                            v-on:click="selectFirstCoin(coin)"
+                            v-bind:class="{'non-active-item' : isSecondCoinSelected && (secondCoin.id == 3 && coin.id == fiatCoinId || secondCoin.id != 3 && coin.id != fiatCoinId)}"
+                    >
+                        <img v-bind:src="coin.img" alt="">
+                        {{coin.name}}
+                    </li>
+                </ul>
             </div>
-            <input type="hidden" id="coin1">
-            <ul class="dropdown-menu t1">
-                <li data-id="1"><img src="../static/img/btc.svg" alt="">BTC1</li>
-                <li data-id="2"><img src="../static/img/btc.svg" alt="">BTC2</li>
-                <li data-id="{3}"><img src="../static/img/btc.svg" alt="">BTC3</li>
-                <li><img src="../static/img/btc.svg" alt="">BTC4</li>
-                <li><img src="../static/img/btc.svg" alt="">BTC5</li>
-                <li><img src="../static/img/btc.svg" alt="">BTC6</li>
-                <li><img src="../static/img/btc.svg" alt="">BTC7</li>
-                <li><img src="../static/img/btc.svg" alt="">BTC8</li>
-            </ul>
-        </div>
 
-        <div class="input-box">
-            <input type="number" placeholder="Account Name" name="username" value="123">
-        </div>
-
-        <div class="rate small-grey-text">1 USDT = 1.03 USD</div>
-
-        <div class="input-box">
-            <input type="number" placeholder="Account Name" name="username" value="123">
-        </div>
-
-        <div class="dropdown margin-top" id="dr2">
-            <div class="select" id="select2">
-                <span id="current2" class="selected-item">Select Coin</span>
-                <i class="fa fa-chevron-left"></i>
+            <div class="input-box">
+                <input type="number" placeholder="Account Name" name="username"  v-bind:value="firstCoinSum" v-on:input="changeFirstCoinSum($event)">
             </div>
-            <input type="hidden" id="coin2">
-            <ul class="dropdown-menu t2">
-                <li data-id="1"><img src="../static/img/usdt.svg" alt="">BTC1</li>
-                <li data-id="2"><img src="../static/img/usdt.svg" alt="">BTC2</li>
-                <li data-id="{3}"><img src="../static/img/usdt.svg" alt="">BTC3</li>
-                <li><img src="../static/img/usdt.svg" alt="">BTC4</li>
-                <li><img src="../static/img/usdt.svg" alt="">BTC5</li>
-                <li><img src="../static/img/usdt.svg" alt="">BTC6</li>
-                <li><img src="../static/img/usdt.svg" alt="">BTC7</li>
-                <li><img src="../static/img/usdt.svg" alt="">BTC8</li>
-            </ul>
-        </div>
 
-        <input type="submit" class="big-button white-button margin-top" value="Save">
-        <div class="close-button link" id="close-modal-block1">
-            Dismiss
+            <div v-if="isFirstCoinSelected || isSecondCoinSelected" class="rate small-grey-text">{{firstCoin.minToFiat}} {{firstCoin.name}} = {{exchange()}} {{secondCoin.name}}</div>
+            <div v-else class="rate small-grey-text"></div>
+
+
+            <div class="input-box">
+                <input type="number" placeholder="Account Name" name="username"  v-bind:value="secondCoinSum" v-on:input="changeSecondCoinSum($event)">
+            </div>
+
+            <div class="dropdown margin-top" id="dr2">
+                <div class="select" id="select2">
+                    <span id="current2" class="selected-item">
+                        <span v-if="isFirstCoinSelected || isSecondCoinSelected" class="flex">
+                            <img v-bind:src="secondCoin.img" alt="">
+                            {{secondCoin.name}}
+                        </span>
+                        <span v-if="!isFirstCoinSelected && !isSecondCoinSelected">{{secondCoin}}</span>
+                    </span>
+                </div>
+                <input type="hidden" id="coin2" v-bind:value="secondCoin.id">
+                <ul class="dropdown-menu t2">
+                    <li
+                            v-for="coin of coins"
+                            v-bind:data-id="coin.id"
+                            v-on:click="selectSecondCoin(coin)"
+                            v-bind:class="{'non-active-item' : isFirstCoinSelected && (firstCoin.id == 3 && coin.id == fiatCoinId || firstCoin.id != 3 && coin.id != fiatCoinId)}"
+                    >
+                        <img v-bind:src="coin.img" alt="">
+                        {{coin.name}}
+                    </li>
+                </ul>
+            </div>
+
+            <input type="submit" class="big-button white-button margin-top" value="Save">
+            <div class="close-button link" id="close-modal-block1">
+                Dismiss
+            </div>
         </div>
     </div>
 </div>
@@ -184,5 +199,7 @@
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="../static/js/app.js"></script>
 </body>
 </html>

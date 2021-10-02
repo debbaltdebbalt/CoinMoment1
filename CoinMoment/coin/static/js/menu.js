@@ -103,11 +103,6 @@ window.onload = function () {
         $(this).removeClass('active');
         $(this).find('.dropdown-menu').slideUp(300);
     });
-    $('.dropdown .dropdown-menu.t1 li').click(function () {
-        $(this).parents('.dropdown').find('#current1').empty();
-        $(this).clone().appendTo('#current1');
-        $(this).parents('.dropdown').find('#coin1').attr('value', $(this).attr('data-id'));
-    });
 
     $('#dr2').click(function () {
         $(this).toggleClass('active');
@@ -116,11 +111,6 @@ window.onload = function () {
     $('#dr2').focusout(function () {
         $(this).removeClass('active');
         $(this).find('.dropdown-menu').slideUp(300);
-    });
-    $('.dropdown .dropdown-menu.t2 li').click(function () {
-        $(this).parents('.dropdown').find('#current2').empty();
-        $(this).clone().appendTo('#current2');
-        $(this).parents('.dropdown').find('#coin2').attr('value', $(this).attr('data-id'));
     });
 
     $('#dr3').click(function () {
